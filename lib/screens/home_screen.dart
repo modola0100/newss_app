@@ -21,11 +21,11 @@ class HomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0,top: 8.0),
               child: Text("General News",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold ,
-                  color: Colors.black87
-              )),
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold ,
+                      color: Colors.black87
+                  )),
             ),
           ),
           ArticleListview(),
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
 
 
         ],),
-      );
+    );
 
 
   }

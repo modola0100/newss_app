@@ -10,7 +10,7 @@ class ArticleListview extends StatefulWidget {
 }
 
 class _ArticleListviewState extends State<ArticleListview> {
-  List<Article>? x=[];
+  List<Article>? x;
   @override
   void initState() {
     getNews();
@@ -20,17 +20,24 @@ class _ArticleListviewState extends State<ArticleListview> {
   }
   getNews()async{
     ApiService apiService = ApiService();
-    var x= await apiService.getNews();
+     x= await apiService.getNews();
     setState(() {
 
     });
   }
   @override
   Widget build(BuildContext context) {
-    return  x == null ? Center(child: SliverToBoxAdapter(child: CircularProgressIndicator())) :SliverList.builder(itemBuilder: (context,index)
-    {
+    return  x == null
+        ? const  SliverToBoxAdapter(child: Center(child: CircularProgressIndicator(
+      color: Colors.teal,
+
+        )),
+    )
+        :
+        SliverList.builder(itemBuilder: (context,index){
           return ArticleItem(article: x![index]);
-    },
-      itemCount: x!.length,);
+        },itemCount:  x!.length,);
+
+
   }
 }
